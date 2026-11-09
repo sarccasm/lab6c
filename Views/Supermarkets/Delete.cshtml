@@ -1,0 +1,3 @@
+@model Supermarket
+<h1>Видалити запис?</h1><div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post"><button class="btn btn-danger">Підтвердити видалення</button></form><a asp-action="Index">Скасувати</a>

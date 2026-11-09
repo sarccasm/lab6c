@@ -1,0 +1,5 @@
+@model IEnumerable<Supermarket>
+<h1>Supermarkets</h1><a asp-action="Create">Додати</a>
+<table class="table"><thead><tr><th>Name</th><th>Address</th><th>Дії</th></tr></thead><tbody>
+@foreach(var item in Model){<tr><td>@item.Name</td><td>@item.Address</td><td><a asp-action="Details" asp-route-id="@item.Id">Перегляд</a> | <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> | <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a></td></tr>}
+</tbody></table><nav aria-label="Сторінки">@for(int i=1;i<=(int)ViewBag.Pages;i++){<a asp-action="Index" asp-route-page="@i" class="btn @(i==(int)ViewBag.Page ? "btn-primary" : "btn-light")">@i</a>}</nav>

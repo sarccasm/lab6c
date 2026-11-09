@@ -1,0 +1,5 @@
+@model Order
+<h1>Замовлення №@Model.Id</h1><p>@Model.OrderDate.ToString("dd.MM.yyyy") · @Model.Customer.FullName · @Model.Supermarket.Name</p>
+<table class="table"><thead><tr><th>Товар</th><th>Кількість</th><th>Ціна</th><th>Вартість</th></tr></thead><tbody>
+@foreach(var line in Model.OrderDetails){<tr><td>@line.Product.Name</td><td>@line.Quantity</td><td>@line.UnitPrice.ToString("0.00")</td><td>@((line.Quantity*line.UnitPrice).ToString("0.00"))</td></tr>}
+</tbody></table><p><strong>Разом: @Model.OrderDetails.Sum(d=>d.Quantity*d.UnitPrice).ToString("0.00")</strong></p><a asp-action="Index">Назад</a>

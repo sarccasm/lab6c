@@ -1,0 +1,5 @@
+@model IEnumerable<Customer>
+<h1>Customers</h1><a asp-action="Create">Додати</a><form method="get"><input name="search" value="@ViewBag.Search" placeholder="Ім’я або прізвище"/><select name="sort"><option value="">Прізвище ↑</option><option value="name_desc" selected="@(ViewBag.Sort == "name_desc")">Прізвище ↓</option><option value="address" selected="@(ViewBag.Sort == "address")">Адреса ↑</option><option value="address_desc" selected="@(ViewBag.Sort == "address_desc")">Адреса ↓</option></select><button>Знайти</button></form>
+<table class="table"><thead><tr><th>FirstName</th><th>LastName</th><th>Address</th><th>Discount</th><th>Дії</th></tr></thead><tbody>
+@foreach(var item in Model){<tr><td>@item.FirstName</td><td>@item.LastName</td><td>@item.Address</td><td>@item.Discount</td><td><a asp-action="Details" asp-route-id="@item.Id">Перегляд</a> | <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> | <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a></td></tr>}
+</tbody></table>

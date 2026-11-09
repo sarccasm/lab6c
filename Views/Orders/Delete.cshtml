@@ -1,0 +1,2 @@
+@model Order
+<h1>Видалити замовлення №@Model.Id?</h1><form method="post" asp-action="Delete" asp-route-id="@Model.Id"><button class="btn btn-danger">Видалити</button></form><a asp-action="Index">Скасувати</a>
